@@ -6,20 +6,20 @@
     <title>Tuhin Ahmed — Journalist & Community Leader</title>
     <style>
         :root {
-            --primary: #111827;
+            --primary: #0f172a;
             --accent: #991b1b;
-            --bg-light: #f9fafb;
+            --bg-light: #f8fafc;
             --card-bg: #ffffff;
-            --text-dark: #1f2937;
-            --text-muted: #4b5563;
-            --border: #e5e7eb;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
         
         body { 
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; 
-            line-height: 1.7; 
+            line-height: 1.6; 
             color: var(--text-dark); 
             background-color: var(--bg-light);
         }
@@ -28,32 +28,32 @@
         nav {
             background: var(--card-bg);
             border-bottom: 1px solid var(--border);
-            padding: 1rem 2rem;
+            padding: 1.2rem 2rem;
             position: sticky;
             top: 0;
             z-index: 100;
         }
 
         .nav-container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 15px;
         }
 
         .logo { 
             font-weight: 700; 
-            font-size: 1.2rem; 
+            font-size: 1.3rem; 
             color: var(--primary); 
             text-decoration: none; 
             letter-spacing: -0.5px;
         }
 
         .nav-links a { 
-            margin-left: 1.2rem; 
+            margin-left: 1.5rem; 
             text-decoration: none; 
             color: var(--text-muted); 
             font-weight: 500; 
@@ -63,106 +63,145 @@
 
         .nav-links a:hover, .nav-links a.active { color: var(--accent); }
 
-        /* Main Container */
-        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+        /* Container */
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
 
-        /* Bio Profile Card */
-        .bio-card {
+        /* Hero Header */
+        .hero {
             background: var(--card-bg);
             border: 1px solid var(--border);
-            border-radius: 8px;
-            border-left: 4px solid var(--accent);
-            padding: 2.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .bio-layout {
+            border-radius: 12px;
+            padding: 3rem;
+            margin-bottom: 2.5rem;
             display: flex;
-            gap: 2rem;
-            align-items: flex-start;
+            gap: 2.5rem;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
         }
 
         .profile-img {
-            width: 180px;
-            height: 180px;
-            border-radius: 8px;
+            width: 200px;
+            height: 200px;
+            border-radius: 12px;
             object-fit: cover;
             border: 1px solid var(--border);
             flex-shrink: 0;
+            background-color: #f1f5f9;
         }
 
-        .bio-content h1 {
-            font-size: 2.2rem;
+        .hero-content h1 {
+            font-size: 2.5rem;
             color: var(--primary);
-            margin-bottom: 0.2rem;
+            line-height: 1.2;
+            margin-bottom: 0.3rem;
         }
 
-        .bio-subtitle {
+        .hero-title {
             color: var(--accent);
             font-weight: 600;
-            font-size: 1.05rem;
+            font-size: 1.15rem;
             margin-bottom: 1.2rem;
         }
 
-        .bio-text p {
-            margin-bottom: 1rem;
+        .hero-bio {
             color: var(--text-dark);
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
         }
 
-        .bio-meta {
-            margin-top: 1.5rem;
-            padding-top: 1rem;
-            border-top: 1px solid var(--border);
+        .hero-meta {
             display: flex;
             gap: 1.5rem;
             font-size: 0.9rem;
             color: var(--text-muted);
+            border-top: 1px solid var(--border);
+            padding-top: 1rem;
             flex-wrap: wrap;
         }
 
-        .bio-meta strong { color: var(--primary); }
+        .hero-meta strong { color: var(--primary); }
 
-        /* Section Styling */
-        .section-title {
-            font-size: 1.5rem;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
+        /* Key Metrics Banner */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
         }
 
-        /* Article Cards */
-        .article-card {
+        .stat-card {
             background: var(--card-bg);
             border: 1px solid var(--border);
             border-radius: 8px;
             padding: 1.5rem;
-            margin-bottom: 1rem;
-            transition: transform 0.2s;
+            text-align: center;
         }
 
-        .article-card:hover { transform: translateY(-2px); }
-        .article-card h3 { margin-bottom: 0.5rem; font-size: 1.2rem; }
-        .article-card h3 a { color: var(--primary); text-decoration: none; }
-        .article-card h3 a:hover { color: var(--accent); }
-        .article-meta { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.8rem; }
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.2rem;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        /* Two Column Layout */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2.5rem;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        /* Cards */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .card h3 { font-size: 1.15rem; margin-bottom: 0.4rem; }
+        .card h3 a { color: var(--primary); text-decoration: none; }
+        .card h3 a:hover { color: var(--accent); }
+        .card-meta { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.8rem; }
+        .card p { font-size: 0.95rem; color: var(--text-dark); }
+
+        /* Sidebar Item */
+        .sidebar-item { margin-bottom: 1.2rem; }
+        .sidebar-item h4 { font-size: 1rem; color: var(--primary); }
+        .sidebar-item p { font-size: 0.88rem; color: var(--text-muted); }
 
         /* Footer */
         footer {
             text-align: center;
-            padding: 2rem 0;
+            padding: 2.5rem 0;
             margin-top: 4rem;
             color: var(--text-muted);
             font-size: 0.9rem;
             border-top: 1px solid var(--border);
+            background: var(--card-bg);
         }
 
-        /* Responsive Layout for Mobile */
-        @media (max-width: 640px) {
-            .bio-layout {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-            .bio-meta { justify-content: center; }
+        @media (max-width: 850px) {
+            .hero { flex-direction: column; text-align: center; padding: 2rem; }
+            .hero-meta { justify-content: center; }
+            .main-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -183,36 +222,90 @@
 
     <div class="container">
         
-        <!-- Profile Card -->
-        <div class="bio-card">
-            <div class="bio-layout">
-                <img src="profile.jpg" alt="Tuhin Ahmed" class="profile-img">
+        <!-- Hero Profile Section -->
+        <div class="hero">
+            <img src="profile.jpg" 
+                 onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Tuhin+Ahmed&size=200&background=0f172a&color=fff';" 
+                 alt="Tuhin Ahmed" 
+                 class="profile-img">
+            
+            <div class="hero-content">
+                <h1>Tuhin Ahmed</h1>
+                <div class="hero-title">Journalist | Community Leader | Media Professional</div>
                 
-                <div class="bio-content">
-                    <h1>Tuhin Ahmed</h1>
-                    <div class="bio-subtitle">Journalist | Community Leader</div>
-                    
-                    <div class="bio-text">
-                        <p>Tuhin Ahmed is a Bangladeshi journalist and reporter based in Sylhet, serving as a correspondent for <em>Daily Protidiner Sangbad</em> and <em>Bangladesh Guardian</em>. As an Executive Member of the Sylhet Zilla Press Club, he focuses his reporting on local governance, community affairs, regional news, and environmental stewardship across the region.</p>
-                        
-                        <p>Alongside his media background, Tuhin actively leads civic and social welfare initiatives. He serves as Assistant Coordinator (Admin) for Rotary District 3282 and was President of the Rotary Club of Sylhet North for the 2025–2026 term, guiding environmental preservation drives, educational distributions, and community outreach campaigns.</p>
-                    </div>
+                <p class="hero-bio">
+                    Correspondent for <em>Daily Protidiner Sangbad</em> and <em>Bangladesh Guardian</em> based in Sylhet. Executive Member of the Sylhet Zilla Press Club, dedicated to investigative regional reporting, civic affairs, governance, and environmental stewardship across Bangladesh.
+                </p>
 
-                    <div class="bio-meta">
-                        <span><strong>Location:</strong> Sylhet, Bangladesh</span>
-                        <span><strong>Email:</strong> <a href="mailto:contact@tuhin.com.bd" style="color: var(--accent); text-decoration: none;">contact@tuhin.com.bd</a></span>
-                    </div>
+                <div class="hero-meta">
+                    <span><strong>Location:</strong> Sylhet, Bangladesh</span>
+                    <span><strong>Press Member:</strong> Sylhet Zilla Press Club</span>
+                    <span><strong>Email:</strong> contact@tuhin.com.bd</span>
                 </div>
             </div>
         </div>
 
-        <!-- Featured Articles -->
-        <h2 class="section-title">Featured Articles</h2>
+        <!-- Key Highlights Bar -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">Journalism</div>
+                <div class="stat-label">Protidiner Sangbad & Guardian</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">Leadership</div>
+                <div class="stat-label">Sylhet Zilla Press Club</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">Rotary</div>
+                <div class="stat-label">Assistant Coordinator (Admin)</div>
+            </div>
+        </div>
 
-        <div class="article-card">
-            <div class="article-meta">September 14, 2026 • Reporting</div>
-            <h3><a href="news-feed.html">My First News Report</a></h3>
-            <p>A summary of recent local community developments, media coverage, and regional news updates.</p>
+        <!-- Main Content Area -->
+        <div class="main-grid">
+            
+            <!-- Left Column: Featured News & Updates -->
+            <div>
+                <h2 class="section-title">Latest Updates & Coverage</h2>
+
+                <div class="card">
+                    <div class="card-meta">Regional Reporting • Sylhet</div>
+                    <h3><a href="news-feed.html">Live Aggregated News Feed</a></h3>
+                    <p>Automated tracker monitoring news reports, regional developments, and published coverage filed under the byline <strong>তুহিন আহমদ, সিলেট</strong>.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-meta">Environmental & Community Leadership</div>
+                    <h3><a href="media.html">Civic Engagement & Environmental Initiatives</a></h3>
+                    <p>Documenting tree distribution campaigns, educational support programs, and community welfare efforts organized across Sylhet and surrounding districts.</p>
+                </div>
+            </div>
+
+            <!-- Right Column: Roles & Affiliations -->
+            <div>
+                <h2 class="section-title">Current Roles</h2>
+
+                <div class="sidebar-item">
+                    <h4>Sylhet Correspondent</h4>
+                    <p>Daily Protidiner Sangbad & Bangladesh Guardian</p>
+                </div>
+
+                <div class="sidebar-item">
+                    <h4>Executive Member</h4>
+                    <p>Sylhet Zilla Press Club</p>
+                </div>
+
+                <div class="sidebar-item">
+                    <h4>Assistant Coordinator (Admin)</h4>
+                    <p>Rotary District 3282</p>
+                </div>
+
+                <div class="sidebar-item">
+                    <h4>Past President (2025–2026)</h4>
+                    <p>Rotary Club of Sylhet North</p>
+                </div>
+            </div>
+
         </div>
 
     </div>
