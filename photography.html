@@ -1,4 +1,140 @@
-<nav>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photojournalism & Photography — Tuhin Ahmed</title>
+    <style>
+        :root {
+            --primary: #0f172a;
+            --accent: #991b1b;
+            --bg-light: #f8fafc;
+            --card-bg: #ffffff;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; 
+            line-height: 1.6; 
+            color: var(--text-dark); 
+            background-color: var(--bg-light);
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border);
+            padding: 1.2rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo { 
+            font-weight: 700; 
+            font-size: 1.3rem; 
+            color: var(--primary); 
+            text-decoration: none; 
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links a { 
+            margin-left: 1.5rem; 
+            text-decoration: none; 
+            color: var(--text-muted); 
+            font-weight: 500; 
+            font-size: 0.95rem;
+            transition: color 0.2s; 
+        }
+
+        .nav-links a:hover, .nav-links a.active { color: var(--accent); }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+
+        .page-header { margin-bottom: 2.5rem; }
+        .page-header h1 { font-size: 2.2rem; color: var(--primary); margin-bottom: 0.5rem; }
+        .page-header p { color: var(--text-muted); font-size: 1.05rem; }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .photo-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .photo-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent);
+        }
+
+        .photo-wrapper {
+            width: 100%;
+            height: 240px;
+            background-color: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .photo-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .photo-caption {
+            padding: 1.2rem;
+        }
+
+        .photo-caption h3 {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 0.4rem;
+        }
+
+        .photo-caption p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2.5rem 0;
+            margin-top: 4rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+            background: var(--card-bg);
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
         <div class="nav-container">
             <a href="index.html" class="logo">Tuhin Ahmed</a>
             <div class="nav-links">
@@ -10,3 +146,49 @@
             </div>
         </div>
     </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Photojournalism & Gallery</h1>
+            <p>Visual documentation of regional events, environmental campaigns, civic initiatives, and culture across Sylhet Division.</p>
+        </div>
+
+        <div class="gallery-grid">
+            <div class="photo-card">
+                <div class="photo-wrapper">
+                    <img src="profile.JPG" alt="Profile Portfolio">
+                </div>
+                <div class="photo-caption">
+                    <h3>Executive Press Representation</h3>
+                    <p>Journalistic coverage and civic media leadership in Sylhet, Bangladesh.</p>
+                </div>
+            </div>
+
+            <div class="photo-card">
+                <div class="photo-wrapper" style="background: #cbd5e1; color: #475569; font-weight: 600;">
+                    Environmental Drive
+                </div>
+                <div class="photo-caption">
+                    <h3>Tree Plantation Campaign</h3>
+                    <p>Distributing saplings across local unions to foster environmental sustainability.</p>
+                </div>
+            </div>
+
+            <div class="photo-card">
+                <div class="photo-wrapper" style="background: #cbd5e1; color: #475569; font-weight: 600;">
+                    Community Outreach
+                </div>
+                <div class="photo-caption">
+                    <h3>Educational Material Support</h3>
+                    <p>Community welfare and educational support programs organized for local students.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Tuhin Ahmed. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
