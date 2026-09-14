@@ -3,538 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tuhin Ahmed — Journalist & Community Leader</title>
+    <title>Tuhin Ahmed — Journalist & Media Professional</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #0f172a;
-            --accent: #991b1b;
-            --bg-light: #f8fafc;
-            --card-bg: #ffffff;
-            --text-dark: #1e293b;
-            --text-muted: #64748b;
-            --border: #e2e8f0;
+            --bg-color: #f6f4ee;
+            --text-dark: #1a1a1a;
+            --text-muted: #555555;
+            --border-color: #e2ded4;
+            --accent: #8b0000;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        
-        body { 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; 
-            line-height: 1.6; 
-            color: var(--text-dark); 
-            background-color: var(--bg-light);
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* Navigation */
-        nav {
-            background: var(--card-bg);
-            border-bottom: 1px solid var(--border);
-            padding: 1.2rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .nav-container {
+        /* Header Navigation */
+        header {
             max-width: 1100px;
             margin: 0 auto;
+            padding: 2.5rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
         }
 
-        .logo { 
-            font-weight: 700; 
-            font-size: 1.3rem; 
-            color: var(--primary); 
-            text-decoration: none; 
-            letter-spacing: -0.5px;
-        }
-
-        .nav-links a { 
-            margin-left: 1.5rem; 
-            text-decoration: none; 
-            color: var(--text-muted); 
-            font-weight: 500; 
-            font-size: 0.95rem;
-            transition: color 0.2s; 
-        }
-
-        .nav-links a:hover, .nav-links a.active { color: var(--accent); }
-
-        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
-
-        /* Hero Banner */
-        .hero {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 3rem;
-            margin-bottom: 2.5rem;
-            display: flex;
-            gap: 2.5rem;
-            align-items: center;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-        }
-
-        .profile-img {
-            width: 200px;
-            height: 200px;
-            border-radius: 12px;
-            object-fit: cover;
-            border: 1px solid var(--border);
-            flex-shrink: 0;
-            background-color: #f1f5f9;
-        }
-
-        .hero-content h1 {
-            font-size: 2.5rem;
-            color: var(--primary);
-            line-height: 1.2;
-            margin-bottom: 0.3rem;
-        }
-
-        .hero-title {
-            color: var(--accent);
-            font-weight: 600;
-            font-size: 1.15rem;
-            margin-bottom: 1.2rem;
-        }
-
-        .hero-bio {
+        .logo {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
             color: var(--text-dark);
-            font-size: 1.05rem;
-            margin-bottom: 1.5rem;
+            text-decoration: none;
         }
 
-        .hero-meta {
-            display: flex;
-            gap: 1.5rem;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            border-top: 1px solid var(--border);
-            padding-top: 1rem;
-            flex-wrap: wrap;
+        nav a {
+            margin-left: 2rem;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: opacity 0.2s;
         }
 
-        .hero-meta strong { color: var(--primary); }
+        nav a:hover { opacity: 0.6; }
 
-        /* Metrics Bar */
-        .stats-grid {
+        /* Hero Section */
+        .hero {
+            max-width: 1100px;
+            margin: 2rem auto 5rem;
+            padding: 0 2rem;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 3rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
         }
 
-        .stat-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 1.5rem;
+        .hero-text h1 {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: 3.2rem;
+            font-weight: 400;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .hero-text p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            max-width: 440px;
+            margin-bottom: 2rem;
+        }
+
+        .btn-link {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--text-dark);
+            text-decoration: none;
+            border-bottom: 1.5px solid var(--text-dark);
+            padding-bottom: 4px;
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .btn-link:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        /* Layered Photo Effect */
+        .hero-image-wrapper {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .photo-backdrop {
+            position: absolute;
+            width: 280px;
+            height: 350px;
+            background-color: #222222;
+            top: 20px;
+            right: 40px;
+            z-index: 1;
+        }
+
+        .photo-main {
+            position: relative;
+            width: 280px;
+            height: 350px;
+            z-index: 2;
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        /* Bio Summary Section */
+        .bio-section {
+            max-width: 800px;
+            margin: 0 auto 5rem;
+            padding: 0 2rem;
             text-align: center;
         }
 
-        .stat-number {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: var(--accent);
-            margin-bottom: 0.2rem;
+        .bio-section p {
+            font-size: 1.15rem;
+            color: var(--text-dark);
+            line-height: 1.8;
+            font-weight: 400;
         }
 
-        .stat-label {
+        /* Footer */
+        footer {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
             font-size: 0.85rem;
             color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-weight: 600;
         }
 
-        /* Section Headings */
-        .section-header {
-            margin-top: 3rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--border);
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-        }
-
-        .section-title {
-            font-size: 1.5rem;
-            color: var(--primary);
-        }
-
-        .section-subtitle {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        /* Two Column Layout */
-        .main-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 2.5rem;
-            margin-bottom: 3rem;
-        }
-
-        /* Card Styles */
-        .card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin-bottom: 1.2rem;
-        }
-
-        .card h3 { font-size: 1.2rem; margin-bottom: 0.4rem; }
-        .card h3 a { color: var(--primary); text-decoration: none; }
-        .card h3 a:hover { color: var(--accent); }
-        .card-meta { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.8rem; }
-        .card p { font-size: 0.95rem; color: var(--text-dark); margin-bottom: 0.8rem; }
-
-        .tag-list {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin-top: 0.8rem;
-        }
-
-        .tag {
-            background: #f1f5f9;
-            color: var(--primary);
-            font-size: 0.8rem;
-            padding: 3px 10px;
-            border-radius: 4px;
-            font-weight: 500;
-        }
-
-        /* 3-Column Beat Grid */
-        .beats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .beat-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 1.5rem;
-        }
-
-        .beat-card h3 {
-            font-size: 1.15rem;
-            color: var(--accent);
-            margin-bottom: 0.5rem;
-        }
-
-        .beat-card p {
-            font-size: 0.92rem;
-            color: var(--text-muted);
-            line-height: 1.5;
-        }
-
-        /* Sidebar Item */
-        .sidebar-item { 
-            margin-bottom: 1.5rem; 
-            padding-bottom: 1rem;
-            border-bottom: 1px dashed var(--border);
-        }
-        .sidebar-item:last-child { border-bottom: none; }
-        .sidebar-item h4 { font-size: 1rem; color: var(--primary); margin-bottom: 0.2rem; }
-        .sidebar-item p { font-size: 0.88rem; color: var(--text-muted); }
-
-        /* Full Width Timeline Section */
-        .timeline-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .timeline-item {
-            position: relative;
-            padding-left: 25px;
-            margin-bottom: 1.5rem;
-            border-left: 2px solid var(--border);
-        }
-
-        .timeline-item:last-child { margin-bottom: 0; }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -6px;
-            top: 5px;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: var(--accent);
-        }
-
-        .timeline-date {
-            font-size: 0.82rem;
-            font-weight: 700;
-            color: var(--accent);
-            text-transform: uppercase;
-        }
-
-        .timeline-title {
-            font-size: 1.05rem;
-            font-weight: 600;
-            color: var(--primary);
-            margin: 0.2rem 0;
-        }
-
-        .timeline-desc {
-            font-size: 0.92rem;
-            color: var(--text-muted);
-        }
-
-        /* Contact Banner */
-        .contact-banner {
-            background: var(--primary);
-            color: #ffffff;
-            border-radius: 12px;
-            padding: 2.5rem;
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .contact-banner h2 { font-size: 1.8rem; margin-bottom: 0.5rem; }
-        .contact-banner p { color: #cbd5e1; margin-bottom: 1.5rem; }
-        .contact-btn {
-            display: inline-block;
-            background: var(--accent);
-            color: #ffffff;
-            padding: 10px 24px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background 0.2s;
-        }
-        .contact-btn:hover { background: #7f1d1d; }
-
-        footer {
-            text-align: center;
-            padding: 2.5rem 0;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            border-top: 1px solid var(--border);
-            background: var(--card-bg);
-        }
-
-        @media (max-width: 850px) {
-            .hero { flex-direction: column; text-align: center; padding: 2rem; }
-            .hero-meta { justify-content: center; }
-            .main-grid { grid-template-columns: 1fr; }
+        @media (max-width: 768px) {
+            .hero { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
+            .hero-text p { margin: 0 auto 2rem; }
+            .photo-backdrop { display: none; }
+            header { flex-direction: column; gap: 1.5rem; }
+            nav a { margin: 0 0.8rem; }
         }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="nav-container">
-            <a href="index.html" class="logo">Tuhin Ahmed</a>
-            <div class="nav-links">
-                <a href="index.html" class="active">Home</a>
-                <a href="media.html">Media Background</a>
-                <a href="blog.html">Blog</a>
-                <a href="news-feed.html">News Feed</a>
-                <a href="photography.html">Photography</a>
+    <header>
+        <a href="index.html" class="logo">Tuhin Ahmed</a>
+        <nav>
+            <a href="media.html">About</a>
+            <a href="blog.html">Blog</a>
+            <a href="news-feed.html">News Feed</a>
+            <a href="photography.html">Portfolio</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Journalist based in Sylhet, Bangladesh.</h1>
+                <p>Correspondent for Daily Protidiner Sangbad and Bangladesh Guardian, reporting on local governance, civic welfare, and environmental issues.</p>
+                <a href="media.html" class="btn-link">More About Tuhin</a>
             </div>
-        </div>
-    </nav>
-
-    <div class="container">
-        
-        <!-- Hero Profile Section -->
-        <div class="hero">
-            <img src="profile.jpg" 
-                 onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Tuhin+Ahmed&size=200&background=0f172a&color=fff';" 
-                 alt="Tuhin Ahmed" 
-                 class="profile-img">
-            
-            <div class="hero-content">
-                <h1>Tuhin Ahmed</h1>
-                <div class="hero-title">Journalist | Community Leader | Media Professional</div>
-                
-                <p class="hero-bio">
-                    Correspondent for <em>Daily Protidiner Sangbad</em> and <em>Bangladesh Guardian</em> based in Sylhet. Executive Member of the Sylhet Zilla Press Club, dedicated to investigative regional reporting, civic governance, environmental stewardship, and community welfare initiatives across Bangladesh.
-                </p>
-
-                <div class="hero-meta">
-                    <span><strong>Location:</strong> Sylhet, Bangladesh</span>
-                    <span><strong>Press Member:</strong> Sylhet Zilla Press Club</span>
-                    <span><strong>Email:</strong> contact@tuhin.com.bd</span>
-                </div>
+            <div class="hero-image-wrapper">
+                <div class="photo-backdrop"></div>
+                <img src="profile.JPG" alt="Tuhin Ahmed" class="photo-main">
             </div>
-        </div>
+        </section>
 
-        <!-- Metrics Bar -->
-        <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-number">Journalism</div>
-                <div class="stat-label">Protidiner Sangbad & Guardian</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">Press Club</div>
-                <div class="stat-label">Sylhet Zilla Press Club</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">Rotary Admin</div>
-                <div class="stat-label">Assistant Coordinator D3282</div>
-            </div>
-        </div>
-
-        <!-- Section: Primary Reporting Beats -->
-        <div class="section-header">
-            <h2 class="section-title">Primary Reporting Beats</h2>
-            <span class="section-subtitle">Journalistic Specializations</span>
-        </div>
-
-        <div class="beats-grid">
-            <div class="beat-card">
-                <h3>Local Governance & Policy</h3>
-                <p>Investigating civic policy decisions, district administration, public infrastructure developments, and community advocacy across Sylhet Division.</p>
-            </div>
-            <div class="beat-card">
-                <h3>Environmental Stewardship</h3>
-                <p>Covering regional ecology, tree plantation drives, flood response campaigns, and environmental preservation efforts in northeastern Bangladesh.</p>
-            </div>
-            <div class="beat-card">
-                <h3>Civic & Social Welfare</h3>
-                <p>Reporting on youth education support, community empowerment programs, and organizational humanitarian efforts in local unions.</p>
-            </div>
-        </div>
-
-        <!-- Main Content Area -->
-        <div class="main-grid">
-            
-            <!-- Left Column: Featured Coverage & Live Feed Info -->
-            <div>
-                <div class="section-header" style="margin-top:0;">
-                    <h2 class="section-title">Latest Updates & Coverage</h2>
-                </div>
-
-                <div class="card">
-                    <div class="card-meta">Automated Reporting Feed • Byline Tracking</div>
-                    <h3><a href="news-feed.html">Live Aggregated News Tracker</a></h3>
-                    <p>Monitors published reports, regional news updates, and media coverage filed under the byline <strong>তুহিন আহমদ, সিলেট</strong> across national and regional news portals.</p>
-                    <div class="tag-list">
-                        <span class="tag">Sylhet News</span>
-                        <span class="tag">Byline Tracker</span>
-                        <span class="tag">Live Coverage</span>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-meta">Media Profile & Background</div>
-                    <h3><a href="media.html">Journalistic Affiliations & Press Records</a></h3>
-                    <p>Detailed documentation of editorial roles at <em>Daily Protidiner Sangbad</em> and <em>Bangladesh Guardian</em>, alongside active service as an Executive Member of the Sylhet Zilla Press Club.</p>
-                    <div class="tag-list">
-                        <span class="tag">Journalism</span>
-                        <span class="tag">Press Club</span>
-                        <span class="tag">Media Affairs</span>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-meta">Community Leadership & Social Impact</div>
-                    <h3><a href="media.html">Civic Welfare & Environmental Campaigns</a></h3>
-                    <p>Highlights of major environmental initiatives, including tree sapling distribution drives, educational supply distributions to students, and Rotary District leadership activities.</p>
-                    <div class="tag-list">
-                        <span class="tag">Rotary District 3282</span>
-                        <span class="tag">Tree Plantation</span>
-                        <span class="tag">Civic Service</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right Column: Current Roles & Press Credentials -->
-            <div>
-                <div class="section-header" style="margin-top:0;">
-                    <h2 class="section-title">Current Roles</h2>
-                </div>
-
-                <div class="card">
-                    <div class="sidebar-item">
-                        <h4>Sylhet Correspondent</h4>
-                        <p>Daily Protidiner Sangbad</p>
-                    </div>
-
-                    <div class="sidebar-item">
-                        <h4>Correspondent</h4>
-                        <p>Bangladesh Guardian</p>
-                    </div>
-
-                    <div class="sidebar-item">
-                        <h4>Executive Member</h4>
-                        <p>Sylhet Zilla Press Club</p>
-                    </div>
-
-                    <div class="sidebar-item">
-                        <h4>Assistant Coordinator (Admin)</h4>
-                        <p>Rotary District 3282</p>
-                    </div>
-
-                    <div class="sidebar-item">
-                        <h4>Past President (2025–2026)</h4>
-                        <p>Rotary Club of Sylhet North</p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- Section: Major Leadership Initiatives -->
-        <div class="section-header">
-            <h2 class="section-title">Recent Community Initiatives</h2>
-            <span class="section-subtitle">Leadership & Outreach Highlights</span>
-        </div>
-
-        <div class="timeline-card">
-            <div class="timeline-item">
-                <div class="timeline-date">Rotary Excellence Award</div>
-                <div class="timeline-title">Rotary Club Excellence Award Recognition</div>
-                <div class="timeline-desc">Recognized for outstanding leadership during the 2025–2026 presidential term with the Rotary Club of Sylhet North.</div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-date">Environmental Drive</div>
-                <div class="timeline-title">1,000 Tree Sapling Distribution Campaign</div>
-                <div class="timeline-desc">Chief Guest for an environmental conservation drive distributing 1,000 tree saplings in Bhimkhali Union, Jamalganj.</div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-date">International Environmental Session</div>
-                <div class="timeline-title">Joint Environmental Protection Summit</div>
-                <div class="timeline-desc">Co-organized an international online environmental protection session featuring the Lions Club of Sri Lanka and Rotary Club of Sylhet North.</div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-date">Educational Support</div>
-                <div class="timeline-title">Student Learning Support Program</div>
-                <div class="timeline-desc">Organized an educational drive distributing learning materials to over 160 students in Sylhet region.</div>
-            </div>
-        </div>
-
-        <!-- Contact Callout Banner -->
-        <div class="contact-banner">
-            <h2>Get in Touch for Press & Media Inquiries</h2>
-            <p>For news tips, media inquiries, or community partnership proposals in Sylhet Division.</p>
-            <a href="mailto:contact@tuhin.com.bd" class="contact-btn">Send an Email</a>
-        </div>
-
-    </div>
+        <section class="bio-section">
+            <p>Tuhin Ahmed is an executive member of the Sylhet Zilla Press Club and active correspondent dedicated to district journalism, investigative reporting, and regional development initiatives across northeastern Bangladesh.</p>
+        </section>
+    </main>
 
     <footer>
-        <p>&copy; 2026 Tuhin Ahmed. All rights reserved.</p>
+        <div>&copy; 2026 Tuhin Ahmed. All rights reserved.</div>
+        <div>Sylhet, Bangladesh</div>
     </footer>
 
 </body>
