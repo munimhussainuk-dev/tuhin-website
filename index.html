@@ -3,23 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Journalism Portfolio</title>
+    <title>Journalism Portfolio & Reports</title>
     <style>
-        body { font-family: Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 0 20px; line-height: 1.6; color: #333; }
-        h1 { color: #111; border-bottom: 2px solid #333; padding-bottom: 10px; }
-        .article { margin-bottom: 30px; }
-        a { color: #0066cc; text-decoration: none; }
-        a:hover { text-decoration: underline; }
+        /* Modern CSS Reset & Variable Setup */
+        :root {
+            --primary: #1a252f;
+            --accent: #0066cc;
+            --bg-light: #f8f9fa;
+            --text-dark: #2c3e50;
+            --text-muted: #6c757d;
+            --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; 
+            line-height: 1.6; 
+            color: var(--text-dark); 
+            background-color: var(--bg-light);
+        }
+
+        /* Fixed Top Navigation */
+        nav {
+            background: #ffffff;
+            border-bottom: 1px solid #e9ecef;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo { font-weight: 700; font-size: 1.2rem; color: var(--primary); text-decoration: none; }
+        .nav-links a { margin-left: 1.5rem; text-decoration: none; color: var(--text-muted); font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--accent); }
+
+        /* Container */
+        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+
+        /* Hero / Bio Section */
+        .hero {
+            background: #ffffff;
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 2.5rem;
+            border-left: 5px solid var(--accent);
+        }
+
+        .hero h1 { font-size: 2.2rem; margin-bottom: 0.5rem; color: var(--primary); }
+        .hero p.tagline { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 1rem; }
+
+        /* Section Title */
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            border-bottom: 2px solid #dee2e6;
+            padding-bottom: 0.5rem;
+        }
+
+        /* Articles Grid */
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .article-card {
+            background: #ffffff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .article-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .article-card h3 { margin-bottom: 0.5rem; font-size: 1.25rem; }
+        .article-card h3 a { color: var(--primary); text-decoration: none; }
+        .article-card h3 a:hover { color: var(--accent); }
+        .article-meta { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.8rem; }
+        .article-card p { color: #555; font-size: 0.95rem; }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid #e9ecef;
+        }
     </style>
 </head>
 <body>
-    <h1>Journalism & Reporting</h1>
-    <p>Welcome to my official portfolio. Here you will find my latest news reports, investigations, and articles.</p>
-    
-    <h2>Latest Articles</h2>
-    <div class="article">
-        <h3><a href="first-article.html">My First News Report</a></h3>
-        <p>A brief summary of my latest coverage and journalism work...</p>
+
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Journalism & Press</a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#reports">Reports</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Hero / Biography Section -->
+        <section class="hero" id="about">
+            <h1>Journalist & Reporter</h1>
+            <p class="tagline">Covering local developments, environmental initiatives, and community news.</p>
+            <p>Welcome to my official news portal and portfolio. Here you will find original coverage, investigative reports, and published press releases.</p>
+        </section>
+
+        <!-- Latest Articles Section -->
+        <h2 class="section-title" id="reports">Latest Reports</h2>
+        <div class="article-grid">
+            <div class="article-card">
+                <div class="article-meta">September 14, 2026 • Special Report</div>
+                <h3><a href="first-article.html">My First News Report</a></h3>
+                <p>An in-depth summary of recent local community developments and media coverage...</p>
+            </div>
+        </div>
     </div>
+
+    <footer>
+        <p>&copy; 2026 Personal Journalism Portfolio. All rights reserved.</p>
+    </footer>
+
 </body>
 </html>
