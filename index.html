@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tuhin Ahmed — Journalist | Community Leader</title>
+    <title>Tuhin Ahmed — Journalist & Community Leader</title>
     <style>
         :root {
             --primary: #111827;
@@ -24,7 +24,7 @@
             background-color: var(--bg-light);
         }
 
-        /* Fixed Navigation */
+        /* Navigation */
         nav {
             background: var(--card-bg);
             border-bottom: 1px solid var(--border);
@@ -63,64 +63,79 @@
 
         .nav-links a:hover, .nav-links a.active { color: var(--accent); }
 
-        /* Container */
+        /* Main Container */
         .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
 
-        /* Hero / Bio Section */
-        .hero {
+        /* Bio Profile Card */
+        .bio-card {
             background: var(--card-bg);
-            padding: 2.5rem;
-            border-radius: 8px;
             border: 1px solid var(--border);
-            border-left: 5px solid var(--accent);
-            margin-bottom: 2.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+            padding: 2.5rem;
+            margin-bottom: 3rem;
         }
 
-        .hero h1 { font-size: 2.2rem; margin-bottom: 0.5rem; color: var(--primary); }
-        .hero p.tagline { 
-            font-size: 1.1rem; 
-            color: var(--accent); 
-            font-weight: 600; 
-            margin-bottom: 1.5rem; 
+        .bio-layout {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
         }
 
-        .hero p { color: var(--text-dark); margin-bottom: 1rem; }
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 1px solid var(--border);
+            flex-shrink: 0;
+        }
 
-        /* Contact Details */
-        .contact-box {
+        .bio-content h1 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 0.2rem;
+        }
+
+        .bio-subtitle {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 1.05rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .bio-text p {
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .bio-meta {
             margin-top: 1.5rem;
             padding-top: 1rem;
             border-top: 1px solid var(--border);
             display: flex;
-            gap: 20px;
+            gap: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
             flex-wrap: wrap;
-            font-size: 0.95rem;
         }
 
-        .contact-box a { color: var(--accent); text-decoration: none; font-weight: 500; }
-        .contact-box a:hover { text-decoration: underline; }
+        .bio-meta strong { color: var(--primary); }
 
-        /* Section Title */
+        /* Section Styling */
         .section-title {
-            font-size: 1.4rem;
-            margin-bottom: 1.2rem;
+            font-size: 1.5rem;
             color: var(--primary);
-            border-bottom: 2px solid var(--border);
-            padding-bottom: 0.4rem;
+            margin-bottom: 1.5rem;
         }
 
         /* Article Cards */
-        .article-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
         .article-card {
             background: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: 8px;
             border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
             transition: transform 0.2s;
         }
 
@@ -138,6 +153,16 @@
             color: var(--text-muted);
             font-size: 0.9rem;
             border-top: 1px solid var(--border);
+        }
+
+        /* Responsive Layout for Mobile */
+        @media (max-width: 640px) {
+            .bio-layout {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .bio-meta { justify-content: center; }
         }
     </style>
 </head>
@@ -157,28 +182,39 @@
     </nav>
 
     <div class="container">
-        <section class="hero">
-            <h1>Tuhin Ahmed</h1>
-            <p class="tagline">Journalist | Community Leader</p>
-            
-            <p>Tuhin Ahmed is a Bangladeshi journalist and reporter based in Sylhet, serving as a correspondent for <em>Daily Protidiner Sangbad</em> and <em>Bangladesh Guardian</em>. As an Executive Member of the Sylhet Zilla Press Club, he focuses his reporting on local governance, community affairs, regional news, and environmental stewardship across the region.</p>
-            
-            <p>Alongside his media background, Tuhin actively leads civic and social welfare initiatives. He serves as Assistant Coordinator (Admin) for Rotary District 3282 and was President of the Rotary Club of Sylhet North for the 2025–2026 term, guiding environmental preservation drives, educational distributions, and community outreach campaigns.</p>
+        
+        <!-- Profile Card -->
+        <div class="bio-card">
+            <div class="bio-layout">
+                <img src="profile.jpg" alt="Tuhin Ahmed" class="profile-img">
+                
+                <div class="bio-content">
+                    <h1>Tuhin Ahmed</h1>
+                    <div class="bio-subtitle">Journalist | Community Leader</div>
+                    
+                    <div class="bio-text">
+                        <p>Tuhin Ahmed is a Bangladeshi journalist and reporter based in Sylhet, serving as a correspondent for <em>Daily Protidiner Sangbad</em> and <em>Bangladesh Guardian</em>. As an Executive Member of the Sylhet Zilla Press Club, he focuses his reporting on local governance, community affairs, regional news, and environmental stewardship across the region.</p>
+                        
+                        <p>Alongside his media background, Tuhin actively leads civic and social welfare initiatives. He serves as Assistant Coordinator (Admin) for Rotary District 3282 and was President of the Rotary Club of Sylhet North for the 2025–2026 term, guiding environmental preservation drives, educational distributions, and community outreach campaigns.</p>
+                    </div>
 
-            <div class="contact-box">
-                <div><strong>Location:</strong> Sylhet, Bangladesh</div>
-                <div><strong>Email:</strong> <a href="mailto:contact@tuhin.com.bd">contact@tuhin.com.bd</a></div>
-            </div>
-        </section>
-
-        <h2 class="section-title">Featured Articles</h2>
-        <div class="article-grid">
-            <div class="article-card">
-                <div class="article-meta">September 14, 2026 • Reporting</div>
-                <h3><a href="first-article.html">My First News Report</a></h3>
-                <p>A summary of recent local community developments, media coverage, and regional news updates.</p>
+                    <div class="bio-meta">
+                        <span><strong>Location:</strong> Sylhet, Bangladesh</span>
+                        <span><strong>Email:</strong> <a href="mailto:contact@tuhin.com.bd" style="color: var(--accent); text-decoration: none;">contact@tuhin.com.bd</a></span>
+                    </div>
+                </div>
             </div>
         </div>
+
+        <!-- Featured Articles -->
+        <h2 class="section-title">Featured Articles</h2>
+
+        <div class="article-card">
+            <div class="article-meta">September 14, 2026 • Reporting</div>
+            <h3><a href="news-feed.html">My First News Report</a></h3>
+            <p>A summary of recent local community developments, media coverage, and regional news updates.</p>
+        </div>
+
     </div>
 
     <footer>
