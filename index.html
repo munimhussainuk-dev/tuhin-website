@@ -1,205 +1,587 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tuhin Ahmed — Journalist & Media Professional</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-color: #f6f4ee;
-            --text-dark: #1a1a1a;
-            --text-muted: #555555;
-            --border-color: #e2ded4;
-            --accent: #8b0000;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tuhin Ahmed — Journalist & Civic Media Professional</title>
+<meta name="description" content="Tuhin Ahmed — journalist and media professional reporting on civic life, environment, and regional news in Sylhet, Bangladesh.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #14181D;
+    --paper: #EDEAE4;
+    --paper-2: #E2DED3;
+    --teal: #1F4D3E;
+    --brass: #A9812F;
+    --brass-light: #C79A44;
+    --line: rgba(20,24,29,0.14);
+    --line-strong: rgba(20,24,29,0.28);
+    --serif: 'Newsreader', Georgia, serif;
+    --sans: 'IBM Plex Sans', -apple-system, sans-serif;
+  }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+  * { box-sizing: border-box; }
 
-        body {
-            font-family: 'Inter', -apple-system, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-dark);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
+  html { scroll-behavior: smooth; }
 
-        /* Header Navigation */
-        header {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 2.5rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
 
-        .logo {
-            font-family: 'Inter', sans-serif;
-            font-weight: 700;
-            font-size: 1.1rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--text-dark);
-            text-decoration: none;
-        }
+  a { color: inherit; }
 
-        nav a {
-            margin-left: 2rem;
-            text-decoration: none;
-            color: var(--text-dark);
-            font-size: 0.85rem;
-            font-weight: 500;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            transition: opacity 0.2s;
-        }
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
 
-        nav a:hover { opacity: 0.6; }
+  /* ---------- masthead ---------- */
 
-        /* Hero Section */
-        .hero {
-            max-width: 1100px;
-            margin: 2rem auto 5rem;
-            padding: 0 2rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
+  header.masthead {
+    padding: 28px 0 0;
+  }
 
-        .hero-text h1 {
-            font-family: 'Instrument Serif', Georgia, serif;
-            font-size: 3.2rem;
-            font-weight: 400;
-            line-height: 1.15;
-            margin-bottom: 1.5rem;
-            color: var(--text-dark);
-        }
+  .masthead-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
 
-        .hero-text p {
-            color: var(--text-muted);
-            font-size: 1.05rem;
-            max-width: 440px;
-            margin-bottom: 2rem;
-        }
+  .wordmark {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
 
-        .btn-link {
-            display: inline-block;
-            font-size: 0.8rem;
-            font-weight: 600;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: var(--text-dark);
-            text-decoration: none;
-            border-bottom: 1.5px solid var(--text-dark);
-            padding-bottom: 4px;
-            transition: color 0.2s, border-color 0.2s;
-        }
+  nav.primary {
+    display: flex;
+    gap: 28px;
+    font-size: 14px;
+  }
 
-        .btn-link:hover {
-            color: var(--accent);
-            border-color: var(--accent);
-        }
+  nav.primary a {
+    text-decoration: none;
+    color: var(--ink);
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
+    transition: border-color 0.15s ease;
+  }
 
-        /* Layered Photo Effect */
-        .hero-image-wrapper {
-            position: relative;
-            display: flex;
-            justify-content: center;
-        }
+  nav.primary a:hover { border-color: var(--brass); }
 
-        .photo-backdrop {
-            position: absolute;
-            width: 280px;
-            height: 350px;
-            background-color: #222222;
-            top: 20px;
-            right: 40px;
-            z-index: 1;
-        }
+  .menu-btn {
+    display: none;
+    background: none;
+    border: 1px solid var(--line-strong);
+    padding: 8px 12px;
+    font-family: var(--sans);
+    font-size: 13px;
+    cursor: pointer;
+  }
 
-        .photo-main {
-            position: relative;
-            width: 280px;
-            height: 350px;
-            z-index: 2;
-            object-fit: cover;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-        }
+  .rule {
+    height: 2px;
+    background: var(--brass);
+    margin-top: 22px;
+    width: 0%;
+    animation: draw-in 1.1s ease-out 0.15s forwards;
+  }
 
-        /* Bio Summary Section */
-        .bio-section {
-            max-width: 800px;
-            margin: 0 auto 5rem;
-            padding: 0 2rem;
-            text-align: center;
-        }
+  @keyframes draw-in { to { width: 100%; } }
 
-        .bio-section p {
-            font-size: 1.15rem;
-            color: var(--text-dark);
-            line-height: 1.8;
-            font-weight: 400;
-        }
+  @media (prefers-reduced-motion: reduce) {
+    .rule { animation: none; width: 100%; }
+    html { scroll-behavior: auto; }
+  }
 
-        /* Footer */
-        footer {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
-            border-top: 1px solid var(--border-color);
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
+  /* ---------- intro ---------- */
 
-        @media (max-width: 768px) {
-            .hero { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
-            .hero-text p { margin: 0 auto 2rem; }
-            .photo-backdrop { display: none; }
-            header { flex-direction: column; gap: 1.5rem; }
-            nav a { margin: 0 0.8rem; }
-        }
-    </style>
+  .intro {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 56px;
+    padding: 56px 0 72px;
+    align-items: start;
+  }
+
+  .portrait-frame {
+    border-top: 3px solid var(--brass);
+    padding-top: 14px;
+  }
+
+  .portrait-frame .img-box {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: var(--paper-2);
+    border: 1px solid var(--line-strong);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink);
+    opacity: 0.35;
+  }
+
+  .portrait-frame .img-box svg { width: 40%; height: 40%; }
+
+  .portrait-frame p {
+    font-size: 12px;
+    color: var(--ink);
+    opacity: 0.55;
+    margin: 10px 0 0;
+  }
+
+  .intro h1 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 1.22;
+    margin: 0 0 22px;
+    max-width: 15ch;
+  }
+
+  .intro .role-line {
+    font-size: 15px;
+    color: var(--teal);
+    font-weight: 600;
+    margin: 0 0 6px;
+  }
+
+  .intro p.bio {
+    font-size: 16.5px;
+    max-width: 56ch;
+    margin: 0 0 26px;
+    color: rgba(20,24,29,0.85);
+  }
+
+  .cta-row {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    font-family: var(--sans);
+    font-size: 14px;
+    padding: 10px 18px;
+    border: 1px solid var(--line-strong);
+    background: transparent;
+    text-decoration: none;
+    color: var(--ink);
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease;
+  }
+
+  .btn:hover { border-color: var(--brass); background: rgba(169,129,47,0.08); }
+
+  .btn.solid {
+    background: var(--teal);
+    border-color: var(--teal);
+    color: var(--paper);
+  }
+
+  .btn.solid:hover { background: #163a2f; }
+
+  /* ---------- section heading ---------- */
+
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--line-strong);
+    padding-bottom: 12px;
+    margin-bottom: 30px;
+  }
+
+  .section-head h2 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 26px;
+    margin: 0;
+  }
+
+  .section-head span.count {
+    font-size: 13px;
+    color: rgba(20,24,29,0.5);
+  }
+
+  section { padding: 12px 0 70px; }
+
+  /* ---------- dispatches (asymmetric grid) ---------- */
+
+  .dispatch-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 28px;
+  }
+
+  .dispatch-sub {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 28px;
+  }
+
+  .dispatch-card { display: flex; flex-direction: column; gap: 12px; }
+
+  .dispatch-thumb {
+    width: 100%;
+    aspect-ratio: 16/10;
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+  }
+
+  .dispatch-card.feature .dispatch-thumb { aspect-ratio: 16/9; }
+
+  .dispatch-tag {
+    font-size: 12.5px;
+    color: var(--teal);
+    font-weight: 600;
+  }
+
+  .dispatch-card h3 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 21px;
+    margin: 0;
+    line-height: 1.3;
+  }
+
+  .dispatch-card.feature h3 { font-size: 27px; }
+
+  .dispatch-card p.excerpt {
+    font-size: 14.5px;
+    color: rgba(20,24,29,0.7);
+    margin: 0;
+  }
+
+  /* ---------- fields of work ---------- */
+
+  .fields-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+  }
+
+  .field-block {
+    border-top: 2px solid var(--brass);
+    padding-top: 14px;
+  }
+
+  .field-block:nth-child(1) { grid-column: span 3; }
+  .field-block:nth-child(2) { grid-column: span 3; }
+  .field-block:nth-child(3) { grid-column: span 3; }
+  .field-block:nth-child(4) { grid-column: span 3; }
+
+  .field-block h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 8px;
+  }
+
+  .field-block p {
+    font-size: 14px;
+    color: rgba(20,24,29,0.7);
+    margin: 0;
+  }
+
+  /* ---------- timeline ---------- */
+
+  .timeline {
+    position: relative;
+    padding-left: 26px;
+    border-left: 2px solid var(--brass-light);
+  }
+
+  .timeline-item {
+    position: relative;
+    padding-bottom: 34px;
+  }
+
+  .timeline-item:last-child { padding-bottom: 0; }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -31px;
+    top: 4px;
+    width: 9px;
+    height: 9px;
+    background: var(--brass);
+    border-radius: 50%;
+  }
+
+  .timeline-year {
+    font-size: 13px;
+    color: var(--teal);
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .timeline-item h3 {
+    font-size: 17px;
+    font-weight: 600;
+    margin: 0 0 4px;
+  }
+
+  .timeline-item p {
+    font-size: 14.5px;
+    color: rgba(20,24,29,0.75);
+    margin: 0;
+    max-width: 60ch;
+  }
+
+  /* ---------- footer / contact ---------- */
+
+  footer {
+    border-top: 1px solid var(--line-strong);
+    padding: 48px 0 60px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  footer h2 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 24px;
+    margin: 0 0 14px;
+  }
+
+  footer p {
+    font-size: 15px;
+    color: rgba(20,24,29,0.75);
+    max-width: 46ch;
+    margin: 0 0 18px;
+  }
+
+  .seal {
+    width: 46px;
+    height: 46px;
+    border: 1.5px solid var(--brass);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-size: 13px;
+    color: var(--brass);
+    margin-bottom: 16px;
+  }
+
+  form.pitch { display: flex; flex-direction: column; gap: 12px; }
+
+  form.pitch input,
+  form.pitch textarea {
+    font-family: var(--sans);
+    font-size: 14px;
+    padding: 11px 13px;
+    border: 1px solid var(--line-strong);
+    background: transparent;
+    color: var(--ink);
+    resize: vertical;
+  }
+
+  form.pitch textarea { min-height: 90px; }
+
+  form.pitch input:focus,
+  form.pitch textarea:focus {
+    outline: none;
+    border-color: var(--brass);
+  }
+
+  .foot-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12.5px;
+    color: rgba(20,24,29,0.5);
+    border-top: 1px solid var(--line);
+    margin-top: 44px;
+    padding-top: 18px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* ---------- responsive ---------- */
+
+  @media (max-width: 780px) {
+    .intro { grid-template-columns: 1fr; gap: 28px; }
+    .portrait-frame { max-width: 200px; }
+    .intro h1 { font-size: 30px; max-width: none; }
+    .dispatch-grid { grid-template-columns: 1fr; }
+    .dispatch-sub { grid-template-rows: none; grid-template-columns: 1fr 1fr; }
+    .fields-grid { grid-template-columns: 1fr 1fr; }
+    .field-block:nth-child(n) { grid-column: span 1; }
+    .footer-grid { grid-template-columns: 1fr; }
+    nav.primary { display: none; }
+    nav.primary.open { display: flex; flex-direction: column; gap: 14px; width: 100%; padding-top: 16px; }
+    .menu-btn { display: block; }
+  }
+</style>
 </head>
 <body>
 
-    <header>
-        <a href="index.html" class="logo">Tuhin Ahmed</a>
-        <nav>
-            <a href="media.html">About</a>
-            <a href="blog.html">Blog</a>
-            <a href="news-feed.html">News Feed</a>
-            <a href="photography.html">Portfolio</a>
-        </nav>
-    </header>
+<header class="masthead">
+  <div class="wrap">
+    <div class="masthead-row">
+      <div class="wordmark">Tuhin Ahmed</div>
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation">Menu</button>
+      <nav class="primary" id="primaryNav">
+        <a href="#dispatches">Dispatches</a>
+        <a href="#photography">Photography</a>
+        <a href="#field">Field notes</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+    <div class="rule"></div>
+  </div>
+</header>
 
-    <main>
-        <section class="hero">
-            <div class="hero-text">
-                <h1>Journalist based in Sylhet, Bangladesh.</h1>
-                <p>Correspondent for Daily Protidiner Sangbad and Bangladesh Guardian, reporting on local governance, civic welfare, and environmental issues.</p>
-                <a href="media.html" class="btn-link">More About Tuhin</a>
-            </div>
-            <div class="hero-image-wrapper">
-                <div class="photo-backdrop"></div>
-                <img src="profile.JPG" alt="Tuhin Ahmed" class="photo-main">
-            </div>
-        </section>
+<main class="wrap">
 
-        <section class="bio-section">
-            <p>Tuhin Ahmed is an executive member of the Sylhet Zilla Press Club and active correspondent dedicated to district journalism, investigative reporting, and regional development initiatives across northeastern Bangladesh.</p>
-        </section>
-    </main>
+  <section class="intro">
+    <div class="portrait-frame">
+      <div class="img-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
+      </div>
+      <p>Sylhet, Bangladesh</p>
+    </div>
 
-    <footer>
-        <div>&copy; 2026 Tuhin Ahmed. All rights reserved.</div>
-        <div>Sylhet, Bangladesh</div>
-    </footer>
+    <div>
+      <p class="role-line">Journalist &amp; Media Correspondent</p>
+      <h1 style="max-width: 18ch;">Reporting on news, governance, and community life.</h1>
+      <p class="bio">
+        I report on regional affairs, local governance, and environmental issues around Sylhet Division. My work focuses on regional development, civic welfare, and bringing important local dispatches to national media platforms.
+      </p>
+      <div class="cta-row">
+        <a href="#contact" class="btn solid">Get in touch</a>
+        <a href="#field" class="btn">Journalism background</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="dispatches">
+    <div class="section-head">
+      <h2>Dispatches</h2>
+      <span class="count">Recent reporting</span>
+    </div>
+    <div class="dispatch-grid">
+      <div class="dispatch-card feature">
+        <div class="dispatch-thumb"></div>
+        <p class="dispatch-tag">Environment</p>
+        <h3>Regional Tree Plantation &amp; Conservation Drives</h3>
+        <p class="excerpt">A look into local tree distribution campaigns fostering environmental stewardship across Sylhet.</p>
+      </div>
+      <div class="dispatch-sub">
+        <div class="dispatch-card">
+          <div class="dispatch-thumb"></div>
+          <p class="dispatch-tag">Civic Life</p>
+          <h3>Local Governance and Civic News in Sylhet</h3>
+        </div>
+        <div class="dispatch-card">
+          <div class="dispatch-thumb"></div>
+          <p class="dispatch-tag">Community</p>
+          <h3>Educational Support Drives for Regional Students</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>Fields of work</h2>
+      <span class="count">What I cover</span>
+    </div>
+    <div class="fields-grid">
+      <div class="field-block">
+        <h3>Investigative Reporting</h3>
+        <p>In-depth coverage on local governance, regional developments, and public affairs across Sylhet.</p>
+      </div>
+      <div class="field-block">
+        <h3>Environmental Journalism</h3>
+        <p>Reporting on environmental conservation, tree planting drives, and ecological sustainability.</p>
+      </div>
+      <div class="field-block">
+        <h3>Civic Welfare</h3>
+        <p>Documenting educational support, literacy initiatives, and social welfare programs in the region.</p>
+      </div>
+      <div class="field-block">
+        <h3>Press Leadership</h3>
+        <p>Active executive involvement in regional press clubs and civic media initiatives.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="field">
+    <div class="section-head">
+      <h2>From the field</h2>
+      <span class="count">Press background</span>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <p class="timeline-year">Present</p>
+        <h3>Correspondent, Daily Protidiner Sangbad &amp; Bangladesh Guardian</h3>
+        <p>Reporting on regional governance, civic welfare, environmental issues, and breaking news in Sylhet.</p>
+      </div>
+      <div class="timeline-item">
+        <p class="timeline-year">Present</p>
+        <h3>Executive Member, Sylhet Zilla Press Club</h3>
+        <p>Serving in press club leadership, supporting regional press ethics and media networking.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="seal">TA</div>
+        <h2>Have a news tip or story in mind?</h2>
+        <p>Send a note about a news story worth covering or a civic media collaboration. I read every message and respond promptly.</p>
+      </div>
+      <form class="pitch">
+        <input type="text" placeholder="Your name" required>
+        <input type="email" placeholder="Email address" required>
+        <textarea placeholder="What's on your mind?" required></textarea>
+        <button type="submit" class="btn solid" style="align-self: flex-start;">Send message</button>
+      </form>
+    </div>
+    <div class="foot-meta">
+      <span>&copy; <span id="year"></span> Tuhin Ahmed</span>
+      <span>Sylhet, Bangladesh</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const menuBtn = document.getElementById('menuBtn');
+  const nav = document.getElementById('primaryNav');
+  menuBtn.addEventListener('click', () => {
+    nav.classList.toggle('open');
+  });
+
+  document.querySelector('form.pitch').addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert('Form submitted successfully.');
+  });
+</script>
 
 </body>
 </html>
