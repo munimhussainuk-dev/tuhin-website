@@ -1,81 +1,329 @@
-<script>
-    // RSS Feed Sources List
-    const rssFeeds = [
-        { name: "Protidiner Sangbad", url: "https://www.protidinersangbad.com/rss.xml" },
-        { name: "Bangladesh Guardian", url: "https://bangladeshguardian.com/rss.xml" }
-    ];
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Feed — Tuhin Ahmed</title>
+    <style>
+        :root {
+            --primary: #111827;
+            --accent: #991b1b;
+            --bg-light: #f9fafb;
+            --card-bg: #ffffff;
+            --text-dark: #1f2937;
+            --text-muted: #4b5563;
+            --border: #e5e7eb;
+        }
 
-    // Byline Search Terms
-    const bylineKeywords = [
-        "তুহিন আহমদ, সিলেট",
-        "তুহিন আহমদ (সিলেট)",
-        "তুহিন আহমদ",
-        "Tuhin Ahmed"
-    ];
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; 
+            line-height: 1.7; 
+            color: var(--text-dark); 
+            background-color: var(--bg-light);
+        }
 
-    async function fetchFeeds() {
-        const container = document.getElementById('feed-container');
-        const loading = document.getElementById('loading');
-        let articles = [];
+        nav {
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
 
-        for (const feed of rssFeeds) {
-            try {
-                // Using RSS2JSON service
-                const res = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}`);
-                const data = await res.json();
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
 
-                if (data.status === 'ok') {
-                    data.items.forEach(item => {
-                        const fullContent = `${item.title} ${item.description} ${item.content || ''} ${item.author || ''}`;
-                        
-                        const isBylineMatch = bylineKeywords.some(keyword => fullContent.includes(keyword));
+        .logo { 
+            font-weight: 700; 
+            font-size: 1.2rem; 
+            color: var(--primary); 
+            text-decoration: none; 
+            letter-spacing: -0.5px;
+        }
 
-                        if (isBylineMatch) {
-                            articles.push({
-                                source: feed.name,
-                                title: item.title,
-                                link: item.link,
-                                pubDate: new Date(item.pubDate),
-                                description: item.description.replace(/<[^>]*>?/gm, '').slice(0, 180) + '...'
-                            });
-                        }
-                    });
+        .nav-links a { 
+            margin-left: 1.2rem; 
+            text-decoration: none; 
+            color: var(--text-muted); 
+            font-weight: 500; 
+            font-size: 0.95rem;
+            transition: color 0.2s; 
+        }
+
+        .nav-links a:hover, .nav-links a.active { color: var(--accent); }
+
+        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+
+        .page-header { margin-bottom: 2rem; }
+        .page-header h1 { font-size: 2rem; color: var(--primary); margin-bottom: 0.5rem; }
+        .page-header p { color: var(--text-muted); }
+
+        .feed-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .feed-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            transition: border-color 0.2s;
+        }
+
+        .feed-card:hover { border-color: #cbd5e1; }
+
+        .feed-meta {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .source-badge {
+            background: #f1f5f9;
+            color: var(--primary);
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+        .feed-card h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+        .feed-card h3 a { color: var(--primary); text-decoration: none; }
+        .feed-card h3 a:hover { color: var(--accent); }
+
+        .feed-excerpt { color: var(--text-dark); font-size: 0.95rem; margin-bottom: 0.8rem; }
+
+        .source-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .source-link:hover { text-decoration: underline; }
+
+        #loading {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+        }
+
+        .outlets-section {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--border);
+        }
+
+        .outlets-section h2 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .outlets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .outlet-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+        }
+
+        .outlet-logo {
+            width: 70px;
+            height: 70px;
+            border-radius: 6px;
+            object-fit: cover;
+            border: 1px solid var(--border);
+            background-color: #f1f5f9;
+            flex-shrink: 0;
+        }
+
+        .outlet-info h3 {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 0.2rem;
+        }
+
+        .outlet-info p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.4rem;
+        }
+
+        .outlet-info a {
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .outlet-info a:hover { text-decoration: underline; }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Tuhin Ahmed</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="media.html">Media Background</a>
+                <a href="blog.html">Blog</a>
+                <a href="news-feed.html" class="active">News Feed</a>
+                <a href="photography.html">Photography</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Aggregated News Feed</h1>
+            <p>Automatically filtering coverage published under bylines: <strong>তুহিন আহমদ, সিলেট</strong> and <strong>তুহিন আহমদ</strong></p>
+        </div>
+
+        <div id="loading">Scanning news feeds for your byline...</div>
+        <div class="feed-list" id="feed-container"></div>
+
+        <div class="outlets-section">
+            <h2>Media Houses & Publishing Outlets</h2>
+            <div class="outlets-grid">
+                
+                <div class="outlet-card">
+                    <img src="media-ps.jpg" onerror="this.src='https://ui-avatars.com/api/?name=Protidiner+Sangbad&size=70&background=0f172a&color=fff';" alt="Daily Protidiner Sangbad" class="outlet-logo">
+                    <div class="outlet-info">
+                        <h3>Daily Protidiner Sangbad</h3>
+                        <p>Sylhet Regional Correspondent</p>
+                        <a href="https://www.protidinersangbad.com" target="_blank" rel="noopener">Visit Portal ↗</a>
+                    </div>
+                </div>
+
+                <div class="outlet-card">
+                    <img src="media-bg.jpg" onerror="this.src='https://ui-avatars.com/api/?name=Bangladesh+Guardian&size=70&background=0f172a&color=fff';" alt="Bangladesh Guardian" class="outlet-logo">
+                    <div class="outlet-info">
+                        <h3>Bangladesh Guardian</h3>
+                        <p>Sylhet Correspondent</p>
+                        <a href="https://bangladeshguardian.com" target="_blank" rel="noopener">Visit Portal ↗</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Tuhin Ahmed. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const rssFeeds = [
+            { name: "Protidiner Sangbad", url: "https://www.protidinersangbad.com/rss.xml" },
+            { name: "Bangladesh Guardian", url: "https://bangladeshguardian.com/rss.xml" }
+        ];
+
+        const bylineKeywords = [
+            "তুহিন আহমদ, সিলেট",
+            "তুহিন আহমদ (সিলেট)",
+            "তুহিন আহমদ",
+            "Tuhin Ahmed"
+        ];
+
+        async function fetchFeeds() {
+            const container = document.getElementById('feed-container');
+            const loading = document.getElementById('loading');
+            let articles = [];
+
+            for (const feed of rssFeeds) {
+                try {
+                    const res = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}`);
+                    const data = await res.json();
+
+                    if (data.status === 'ok') {
+                        data.items.forEach(item => {
+                            const fullContent = `${item.title} ${item.description} ${item.content || ''} ${item.author || ''}`;
+                            const isBylineMatch = bylineKeywords.some(keyword => fullContent.includes(keyword));
+
+                            if (isBylineMatch) {
+                                articles.push({
+                                    source: feed.name,
+                                    title: item.title,
+                                    link: item.link,
+                                    pubDate: new Date(item.pubDate),
+                                    description: item.description.replace(/<[^>]*>?/gm, '').slice(0, 180) + '...'
+                                });
+                            }
+                        });
+                    }
+                } catch (err) {
+                    console.error("Error fetching feed:", feed.name, err);
                 }
-            } catch (err) {
-                console.error("Error fetching feed:", feed.name, err);
             }
+
+            loading.style.display = 'none';
+
+            if (articles.length === 0) {
+                container.innerHTML = `
+                    <div class="feed-card">
+                        <div class="feed-meta"><span class="source-badge">Byline Filter Active</span></div>
+                        <h3>Automated Monitoring Active</h3>
+                        <p class="feed-excerpt">The system actively monitors RSS endpoints for reports published under <strong>"তুহিন আহমদ, সিলেট"</strong>. New reports will appear automatically as feeds update.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            articles.sort((a, b) => b.pubDate - a.pubDate);
+
+            articles.forEach(article => {
+                const card = document.createElement('div');
+                card.className = 'feed-card';
+                card.innerHTML = `
+                    <div class="feed-meta">
+                        <span class="source-badge">${article.source}</span>
+                        <span>${article.pubDate.toLocaleDateString()}</span>
+                    </div>
+                    <h3><a href="${article.link}" target="_blank" rel="noopener">${article.title}</a></h3>
+                    <p class="feed-excerpt">${article.description}</p>
+                    <a href="${article.link}" target="_blank" rel="noopener" class="source-link">Read full report on ${article.source} ↗</a>
+                `;
+                container.appendChild(card);
+            });
         }
 
-        loading.style.display = 'none';
+        fetchFeeds();
+    </script>
 
-        if (articles.length === 0) {
-            container.innerHTML = `
-                <div class="feed-card">
-                    <div class="feed-meta"><span class="source-badge">System Status</span></div>
-                    <h3>Automated Monitoring Active</h3>
-                    <p class="feed-excerpt">The feed scraper actively checks Protidiner Sangbad and Bangladesh Guardian for reports published under <strong>"তুহিন আহমদ, সিলেট"</strong>. New publications will appear automatically as feeds update.</p>
-                </div>
-            `;
-            return;
-        }
-
-        articles.sort((a, b) => b.pubDate - a.pubDate);
-
-        articles.forEach(article => {
-            const card = document.createElement('div');
-            card.className = 'feed-card';
-            card.innerHTML = `
-                <div class="feed-meta">
-                    <span class="source-badge">${article.source}</span>
-                    <span>${article.pubDate.toLocaleDateString()}</span>
-                </div>
-                <h3><a href="${article.link}" target="_blank" rel="noopener">${article.title}</a></h3>
-                <p class="feed-excerpt">${article.description}</p>
-                <a href="${article.link}" target="_blank" rel="noopener" class="source-link">Read full report on ${article.source} ↗</a>
-            `;
-            container.appendChild(card);
-        });
-    }
-
-    fetchFeeds();
-</script>
+</body>
+</html>
