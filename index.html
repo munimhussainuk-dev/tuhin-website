@@ -3,31 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Journalism Portfolio & Reports</title>
+    <title>Tuhin Ahmed — Journalist | Community Leader</title>
     <style>
-        /* Modern CSS Reset & Variable Setup */
         :root {
-            --primary: #1a252f;
-            --accent: #0066cc;
-            --bg-light: #f8f9fa;
-            --text-dark: #2c3e50;
-            --text-muted: #6c757d;
-            --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            --primary: #111827;
+            --accent: #991b1b;
+            --bg-light: #f9fafb;
+            --card-bg: #ffffff;
+            --text-dark: #1f2937;
+            --text-muted: #4b5563;
+            --border: #e5e7eb;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
         
         body { 
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; 
-            line-height: 1.6; 
+            line-height: 1.7; 
             color: var(--text-dark); 
             background-color: var(--bg-light);
         }
 
-        /* Fixed Top Navigation */
+        /* Fixed Navigation */
         nav {
-            background: #ffffff;
-            border-bottom: 1px solid #e9ecef;
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border);
             padding: 1rem 2rem;
             position: sticky;
             top: 0;
@@ -40,38 +40,76 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
-        .logo { font-weight: 700; font-size: 1.2rem; color: var(--primary); text-decoration: none; }
-        .nav-links a { margin-left: 1.5rem; text-decoration: none; color: var(--text-muted); font-weight: 500; transition: color 0.2s; }
-        .nav-links a:hover { color: var(--accent); }
+        .logo { 
+            font-weight: 700; 
+            font-size: 1.2rem; 
+            color: var(--primary); 
+            text-decoration: none; 
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links a { 
+            margin-left: 1.2rem; 
+            text-decoration: none; 
+            color: var(--text-muted); 
+            font-weight: 500; 
+            font-size: 0.95rem;
+            transition: color 0.2s; 
+        }
+
+        .nav-links a:hover, .nav-links a.active { color: var(--accent); }
 
         /* Container */
         .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
 
         /* Hero / Bio Section */
         .hero {
-            background: #ffffff;
+            background: var(--card-bg);
             padding: 2.5rem;
             border-radius: 8px;
-            box-shadow: var(--card-shadow);
-            margin-bottom: 2.5rem;
+            border: 1px solid var(--border);
             border-left: 5px solid var(--accent);
+            margin-bottom: 2.5rem;
         }
 
         .hero h1 { font-size: 2.2rem; margin-bottom: 0.5rem; color: var(--primary); }
-        .hero p.tagline { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 1rem; }
+        .hero p.tagline { 
+            font-size: 1.1rem; 
+            color: var(--accent); 
+            font-weight: 600; 
+            margin-bottom: 1.5rem; 
+        }
+
+        .hero p { color: var(--text-dark); margin-bottom: 1rem; }
+
+        /* Contact Details */
+        .contact-box {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            font-size: 0.95rem;
+        }
+
+        .contact-box a { color: var(--accent); text-decoration: none; font-weight: 500; }
+        .contact-box a:hover { text-decoration: underline; }
 
         /* Section Title */
         .section-title {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+            margin-bottom: 1.2rem;
             color: var(--primary);
-            border-bottom: 2px solid #dee2e6;
-            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 0.4rem;
         }
 
-        /* Articles Grid */
+        /* Article Cards */
         .article-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -79,23 +117,18 @@
         }
 
         .article-card {
-            background: #ffffff;
+            background: var(--card-bg);
             padding: 1.5rem;
             border-radius: 8px;
-            box-shadow: var(--card-shadow);
-            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid var(--border);
+            transition: transform 0.2s;
         }
 
-        .article-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-        }
-
-        .article-card h3 { margin-bottom: 0.5rem; font-size: 1.25rem; }
+        .article-card:hover { transform: translateY(-2px); }
+        .article-card h3 { margin-bottom: 0.5rem; font-size: 1.2rem; }
         .article-card h3 a { color: var(--primary); text-decoration: none; }
         .article-card h3 a:hover { color: var(--accent); }
         .article-meta { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.8rem; }
-        .article-card p { color: #555; font-size: 0.95rem; }
 
         /* Footer */
         footer {
@@ -104,7 +137,7 @@
             margin-top: 4rem;
             color: var(--text-muted);
             font-size: 0.9rem;
-            border-top: 1px solid #e9ecef;
+            border-top: 1px solid var(--border);
         }
     </style>
 </head>
@@ -112,36 +145,44 @@
 
     <nav>
         <div class="nav-container">
-            <a href="index.html" class="logo">Journalism & Press</a>
+            <a href="index.html" class="logo">Tuhin Ahmed</a>
             <div class="nav-links">
-                <a href="#about">About</a>
-                <a href="#reports">Reports</a>
-                <a href="#contact">Contact</a>
+                <a href="index.html" class="active">Home</a>
+                <a href="media.html">Media Background</a>
+                <a href="blog.html">Blog</a>
+                <a href="news-feed.html">News Feed</a>
+                <a href="photography.html">Photography</a>
             </div>
         </div>
     </nav>
 
     <div class="container">
-        <!-- Hero / Biography Section -->
-        <section class="hero" id="about">
-            <h1>Journalist & Reporter</h1>
-            <p class="tagline">Covering local developments, environmental initiatives, and community news.</p>
-            <p>Welcome to my official news portal and portfolio. Here you will find original coverage, investigative reports, and published press releases.</p>
+        <section class="hero">
+            <h1>Tuhin Ahmed</h1>
+            <p class="tagline">Journalist | Community Leader</p>
+            
+            <p>Tuhin Ahmed is a Bangladeshi journalist and reporter based in Sylhet, serving as a correspondent for <em>Daily Protidiner Sangbad</em> and <em>Bangladesh Guardian</em>. As an Executive Member of the Sylhet Zilla Press Club, he focuses his reporting on local governance, community affairs, regional news, and environmental stewardship across the region.</p>
+            
+            <p>Alongside his media background, Tuhin actively leads civic and social welfare initiatives. He serves as Assistant Coordinator (Admin) for Rotary District 3282 and was President of the Rotary Club of Sylhet North for the 2025–2026 term, guiding environmental preservation drives, educational distributions, and community outreach campaigns.</p>
+
+            <div class="contact-box">
+                <div><strong>Location:</strong> Sylhet, Bangladesh</div>
+                <div><strong>Email:</strong> <a href="mailto:contact@tuhin.com.bd">contact@tuhin.com.bd</a></div>
+            </div>
         </section>
 
-        <!-- Latest Articles Section -->
-        <h2 class="section-title" id="reports">Latest Reports</h2>
+        <h2 class="section-title">Featured Articles</h2>
         <div class="article-grid">
             <div class="article-card">
-                <div class="article-meta">September 14, 2026 • Special Report</div>
+                <div class="article-meta">September 14, 2026 • Reporting</div>
                 <h3><a href="first-article.html">My First News Report</a></h3>
-                <p>An in-depth summary of recent local community developments and media coverage...</p>
+                <p>A summary of recent local community developments, media coverage, and regional news updates.</p>
             </div>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 Personal Journalism Portfolio. All rights reserved.</p>
+        <p>&copy; 2026 Tuhin Ahmed. All rights reserved.</p>
     </footer>
 
 </body>
