@@ -155,10 +155,10 @@
     <div class="container">
         <div class="page-header">
             <h1>Aggregated News Feed</h1>
-            <p>Automatically aggregated headlines and published coverage from regional news outlets.</p>
+            <p>Automatically filtering coverage published under the byline: <strong>তুহিন আহমদ, সিলেট</strong></p>
         </div>
 
-        <div id="loading">Loading latest news feeds...</div>
+        <div id="loading">Scanning news feeds for your byline...</div>
         <div class="feed-list" id="feed-container"></div>
     </div>
 
@@ -173,6 +173,9 @@
             { name: "Bangladesh Guardian", url: "https://bangladeshguardian.com/rss.xml" }
         ];
 
+        // Byline Search Terms
+        const bylineKeywords = ["তুহিন আহমদ", "Tuhin Ahmed"];
+
         async function fetchFeeds() {
             const container = document.getElementById('feed-container');
             const loading = document.getElementById('loading');
@@ -180,19 +183,25 @@
 
             for (const feed of rssFeeds) {
                 try {
-                    // Uses rss2json API proxy to parse RSS feeds cleanly in client JS
                     const res = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}`);
                     const data = await res.json();
 
                     if (data.status === 'ok') {
-                        data.items.slice(0, 5).forEach(item => {
-                            articles.push({
-                                source: feed.name,
-                                title: item.title,
-                                link: item.link,
-                                pubDate: new Date(item.pubDate),
-                                description: item.description.replace(/<[^>]*>?/gm, '').slice(0, 150) + '...'
-                            });
+                        data.items.forEach(item => {
+                            const fullContent = `${item.title} ${item.description} ${item.author || ''}`;
+                            
+                            // Check if the article contains your byline or name
+                            const isBylineMatch = bylineKeywords.some(keyword => fullContent.includes(keyword));
+
+                            if (isBylineMatch) {
+                                articles.push({
+                                    source: feed.name,
+                                    title: item.title,
+                                    link: item.link,
+                                    pubDate: new Date(item.pubDate),
+                                    description: item.description.replace(/<[^>]*>?/gm, '').slice(0, 180) + '...'
+                                });
+                            }
                         });
                     }
                 } catch (err) {
@@ -205,9 +214,9 @@
             if (articles.length === 0) {
                 container.innerHTML = `
                     <div class="feed-card">
-                        <div class="feed-meta"><span class="source-badge">System</span></div>
-                        <h3>Feed Synchronization Active</h3>
-                        <p class="feed-excerpt">External RSS endpoints are synchronizing. Direct coverage links will appear automatically when updated.</p>
+                        <div class="feed-meta"><span class="source-badge">Byline Filter Active</span></div>
+                        <h3>No direct byline matches found in recent RSS cycles</h3>
+                        <p class="feed-excerpt">The system is actively monitoring feeds for "তুহিন আহমদ, সিলেট". New articles will populate automatically as news feeds update.</p>
                     </div>
                 `;
                 return;
@@ -226,7 +235,7 @@
                     </div>
                     <h3><a href="${article.link}" target="_blank" rel="noopener">${article.title}</a></h3>
                     <p class="feed-excerpt">${article.description}</p>
-                    <a href="${article.link}" target="_blank" rel="noopener" class="source-link">Read full story on ${article.source} ↗</a>
+                    <a href="${article.link}" target="_blank" rel="noopener" class="source-link">Read full report on ${article.source} ↗</a>
                 `;
                 container.appendChild(card);
             });
